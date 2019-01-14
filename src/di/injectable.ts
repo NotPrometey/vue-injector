@@ -6,7 +6,9 @@ function injectableFactory (target: InjectConstructor, options: any = {}) {
     static readonly useFactory: Function = options.useFactory;
     static readonly import: { [key: string]: typeof Injectable } = options.import || null;
 
+    static readonly isVueService: boolean = true;
     readonly isVueService: boolean = true;
+
     readonly name: string = target.name;
 
     readonly context: Object = options.context || null;

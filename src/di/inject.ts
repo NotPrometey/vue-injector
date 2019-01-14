@@ -1,8 +1,9 @@
 import Vue from 'vue';
 
 export interface InjectConstructor {
-  useFactory?: Function;
-  import?: { [key: string]: any };
+  readonly isVueService: boolean;
+  readonly useFactory?: Function;
+  readonly import?: { [key: string]: any };
 
   new (): InjectInterface;
 }
@@ -16,6 +17,7 @@ export interface InjectInterface {
 }
 
 export class Inject implements InjectInterface {
+  static readonly isVueService: boolean;
   readonly isVueService: boolean;
   readonly name: string;
   readonly vm: Vue;

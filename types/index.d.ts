@@ -1,6 +1,8 @@
 import Vue, { Component } from 'vue';
 
 export declare interface InjectConstructor {
+  isVueService: boolean;
+
   new (root: Vue): InjectInterface;
 }
 
@@ -13,6 +15,7 @@ export declare interface InjectInterface {
 }
 
 export declare class Inject implements InjectInterface {
+  static readonly isVueService: boolean;
   readonly isVueService: boolean;
   readonly name: string;
   readonly vm: Vue;
@@ -24,7 +27,7 @@ export declare class Inject implements InjectInterface {
 export declare class Provider {
   app: Vue;
   services: Map<InjectConstructor, Inject | Object>;
-  rootProviders: Array<typeof Inject>;
+  commonProviders: Array<typeof Inject>;
 
   constructor (app: Vue, rootProviders: Array<typeof Inject>);
 
