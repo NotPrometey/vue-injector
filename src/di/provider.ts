@@ -1,5 +1,5 @@
-import { assert, warn } from '../util/warn';
-import Vue, { Component } from 'vue';
+import { assert } from '../util/warn';
+import Vue from 'vue';
 import { InjectedObject } from '../../types';
 import { Inject } from '../index';
 import { InjectConstructor } from './inject';
